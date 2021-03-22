@@ -45,16 +45,17 @@ class Readxls:
                 for k in range(maxcounter*i+1, (i+1)*maxcounter):
                     self.snlist.append(self.sheet.cell(row=k, column=1).value)
 
-                return self.snlist
-
+                a = Serial('115605', '2105', self.snlist, 'petya', '28.11.90', 'test', 'ash','gauge')
+                print(a.article)
             for k in range(parts*maxcounter,maxcounter*parts+remainder+1):
                 self.snlist.append(self.sheet.cell(row=k, column=1).value)
-            return self.snlist # потом будет запихивать в базу данных
+            a = Serial('115605', '2105', self.snlist, 'petya', '28.11.90', 'test', 'ash','gauge')# потом будет запихивать в базу данных
+
         # берет из экселя номера и создает список, пока временно. В итоге сделать в sql по 100 номеров
         #
 
 
 b = Readxls('test.xlsx')
 mylist = b.givemelist()
-print(mylist)
-a = Serial('115605', '2105', '801877', 'petya', '28.11.90', 'test', 'ash','gauge')
+
+
